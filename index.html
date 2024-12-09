@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabelas e Jogos - Brasileirão Série A 2024</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    /* Reset e estilos gerais */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* Topo do site */
+    .top-menu {
+      background-color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .top-menu .menu-items a {
+      margin-right: 15px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .top-menu .menu-items a:hover {
+      color: #00a651;
+    }
+
+    .top-menu .account {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Cabeçalho principal */
+    .main-header {
+      background-color: #00a651;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .main-header .title {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .main-header .search-bar input {
+      padding: 5px 10px;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+    }
+
+    /* Links de navegação */
+    .section-links {
+      background-color: #00a651;
+      display: flex;
+      padding: 10px;
+      gap: 15px;
+    }
+
+    .section-links a {
+      color: white;
+      font-weight: bold;
+    }
+
+    .section-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Conteúdo principal */
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    /* Tabela de classificação */
+    .table-container {
+      flex: 1;
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .table-container h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .table-container table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table-container th,
+    .table-container td {
+      text-align: center;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .table-container th {
+      background-color: #f1f1f1;
+      font-weight: bold;
+    }
+
+    .table-container td {
+      font-size: 0.9rem;
+    }
+
+    /* Jogos */
+    .matches-container {
+      flex: 0.5;
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    .matches-container h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .match {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+    }
+
+    .match img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .match .team {
+      display: flex;
+      align-items: center;
+    }
+
+    .match .score {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Menu superior -->
+  <div class="top-menu">
+    <div class="menu-items">
+      <a href="#" style="color: blue;">globo.com</a>
+      <a href="#" style="color: red;">g1</a>
+      <a href="#" style="color: green;">ge</a>
+      <a href="#" style="color: orange;">gshow</a>
+      <a href="#" style="color: red;">globoplay</a>
+      <a href="#" style="color: orange;">cartola</a>
+      <a href="#" style="color: black;">sportv</a>
+    </div>
+    <div class="account">
+      <span class="material-icons">account_circle</span>
+      Conta Globo
+    </div>
+  </div>
+
+  <!-- Cabeçalho -->
+  <div class="main-header">
+    <div class="title">Brasileirão Série A 2024</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar...">
+    </div>
+  </div>
+
+  <!-- Links de navegação -->
+  <div class="section-links">
+    <a href="#">Classificação</a>
+    <a href="#">Simulador</a>
+    <a href="#">Vídeos</a>
+    <a href="#">Seja PRO</a>
+    <a href="#">VAR</a>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <div class="content">
+    <!-- Tabela -->
+    <div class="table-container">
+      <h2>Tabela de Classificação</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Classificação</th>
+            <th>P</th>
+            <th>J</th>
+            <th>V</th>
+            <th>E</th>
+            <th>D</th>
+            <th>GP</th>
+            <th>GC</th>
+            <th>SG</th>
+            <th>Últimos Jogos</th>
+          </tr>
+        </thead>
+            <tbody>
+              <tr>
+                <td>1. Botafogo</td>
+                <td>73</td>
+                <td>36</td>
+                <td>21</td>
+                <td>10</td>
+                <td>5</td>
+                <td>56</td>
+                <td>28</td>
+                <td>28</td>
+                <td>🟢⚪⚪⚪🟢</td>
+              </tr>
+              <tr>
+                <td>2. Palmeiras</td>
+                <td>70</td>
+                <td>36</td>
+                <td>21</td>
+                <td>7</td>
+                <td>8</td>
+                <td>58</td>
+                <td>31</td>
+                <td>27</td>
+                <td>🔴🟢🟢🟢🔴</td>
+              </tr>
+              <tr>
+                <td>3. Flamengo</td>
+                <td>66</td>
+                <td>36</td>
+                <td>19</td>
+                <td>9</td>
+                <td>8</td>
+                <td>56</td>
+                <td>40</td>
+                <td>16</td>
+                <td>🟢⚪🟢⚪🟢</td>
+              </tr>
+              <tr>
+                <td>4. Internacional</td>
+                <td>65</td>
+                <td>36</td>
+                <td>18</td>
+                <td>11</td>
+                <td>7</td>
+                <td>53</td>
+                <td>32</td>
+                <td>21</td>
+                <td>🟢🟢🟢🟢🔴</td>
+              </tr>
+              <tr>
+                <td>5. Fortaleza</td>
+                <td>65</td>
+                <td>36</td>
+                <td>18</td>
+                <td>11</td>
+                <td>7</td>
+                <td>49</td>
+                <td>36</td>
+                <td>13</td>
+                <td>🟢🟢⚪⚪🔴</td>
+              </tr>
+              <tr>
+                <td>6. São Paulo</td>
+                <td>59</td>
+                <td>36</td>
+                <td>17</td>
+                <td>8</td>
+                <td>11</td>
+                <td>51</td>
+                <td>39</td>
+                <td>12</td>
+                <td>🟢🟢⚪⚪🔴</td>
+              </tr>
+              <tr>
+                <td>7. Corinthians</td>
+                <td>53</td>
+                <td>37</td>
+                <td>14</td>
+                <td>11</td>
+                <td>12</td>
+                <td>51</td>
+                <td>45</td>
+                <td>6</td>
+                <td>🟢🟢🟢🟢🟢</td>
+              </tr>
+              <tr>
+                <td>8. Bahia</td>
+                <td>50</td>
+                <td>37</td>
+                <td>14</td>
+                <td>8</td>
+                <td>15</td>
+                <td>47</td>
+                <td>49</td>
+                <td>-2</td>
+                <td>🔴🔴⚪🟢🔴</td>
+              </tr>
+              <tr>
+                <td>9. Cruzeiro</td>
+                <td>49</td>
+                <td>36</td>
+                <td>13</td>
+                <td>10</td>
+                <td>13</td>
+                <td>41</td>
+                <td>39</td>
+                <td>2</td>
+                <td>🔴🟢🔴⚪⚪</td>
+              </tr>
+              <tr>
+                <td>10. Vitória</td>
+                <td>45</td>
+                <td>36</td>
+                <td>13</td>
+                <td>6</td>
+                <td>17</td>
+                <td>42</td>
+                <td>49</td>
+                <td>-7</td>
+                <td>🟢🔴🟢⚪🟢</td>
+              </tr>
+              <tr>
+                <td>11. Vasco</td>
+                <td>45</td>
+                <td>37</td>
+                <td>12</td>
+                <td>9</td>
+                <td>16</td>
+                <td>39</td>
+                <td>55</td>
+                <td>-16</td>
+                <td>🔴🔴🔴⚪⚪</td>
+              </tr>
+              <tr>
+                <td>12. Atlético-MG</td>
+                <td>45</td>
+                <td>37</td>
+                <td>10</td>
+                <td>15</td>
+                <td>12</td>
+                <td>46</td>
+                <td>52</td>
+                <td>-6</td>
+                <td>⚪⚪⚪🔴⚪</td>
+              </tr>
+              <tr>
+                <td>13. Grêmio</td>
+                <td>44</td>
+                <td>36</td>
+                <td>12</td>
+                <td>8</td>
+                <td>16</td>
+                <td>43</td>
+                <td>46</td>
+                <td>-3</td>
+                <td>⚪🔴⚪⚪🟢</td>
+              </tr>
+              <tr>
+                <td>14. Athletico-PR</td>
+                <td>42</td>
+                <td>36</td>
+                <td>11</td>
+                <td>9</td>
+                <td>16</td>
+                <td>39</td>
+                <td>43</td>
+                <td>-4</td>
+                <td>🔴🔴🟢⚪⚪</td>
+              </tr>
+              <tr>
+                <td>15. Juventude</td>
+                <td>42</td>
+                <td>36</td>
+                <td>10</td>
+                <td>12</td>
+                <td>14</td>
+                <td>46</td>
+                <td>57</td>
+                <td>-11</td>
+                <td>🔴🟢⚪⚪🟢</td>
+              </tr>
+              <tr>
+                <td>16. Fluminense</td>
+                <td>40</td>
+                <td>36</td>
+                <td>10</td>
+                <td>10</td>
+                <td>16</td>
+                <td>31</td>
+                <td>39</td>
+                <td>-8</td>
+                <td>⚪🔴⚪⚪⚪</td>
+              </tr>
+              <tr>
+                <td>17. Criciúma</td>
+                <td>38</td>
+                <td>36</td>
+                <td>9</td>
+                <td>11</td>
+                <td>16</td>
+                <td>41</td>
+                <td>53</td>
+                <td>-12</td>
+                <td>🔴⚪🔴🔴🔴</td>
+              </tr>
+              <tr>
+                <td>18. Bragantino</td>
+                <td>38</td>
+                <td>36</td>
+                <td>8</td>
+                <td>14</td>
+                <td>14</td>
+                <td>37</td>
+                <td>46</td>
+                <td>-9</td>
+                <td>⚪🔴⚪⚪⚪</td>
+              </tr>
+              <tr>
+                <td>19. Cuiabá</td>
+                <td>30</td>
+                <td>36</td>
+                <td>6</td>
+                <td>12</td>
+                <td>18</td>
+                <td>28</td>
+                <td>46</td>
+                <td>-18</td>
+                <td>⚪⚪🔴⚪🔴</td>
+              </tr>
+              <tr>
+                <td>20. Atlético-GO</td>
+                <td>27</td>
+                <td>36</td>
+                <td>6</td>
+                <td>9</td>
+                <td>21</td>
+                <td>26</td>
+                <td>55</td>
+                <td>-29</td>
+                <td>🟢⚪🔴🔴⚪</td>
+              </tr>
+            </tbody>
+      </table>
+    </div>
+
+    <!-- Jogos -->
+    <div class="matches-container">
+        <h2>Jogos</h2>
+        <div class="header d-flex justify-content-between align-items-center mb-4">
+          <span style="cursor: pointer;">🡠</span>
+          <span class="fw-bold">32ª RODADA</span>
+          <span style="cursor: pointer;">🡢</span>
+        </div>
+        
+        <div class="d-flex flex-column align-items-center">
+          <!-- Jogo 1 -->
+          <div class="d-flex justify-content-center align-items-center mb-3">
+            <div class="d-flex align-items-center">
+              <span class="fs-4 me-2">GRE</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Gremio_logo.svg/500px-Gremio_logo.svg.png" alt="Grêmio" style="width: 20px; height: 20px;">
+            </div>
+            <span class="fs-4 mx-2">2 x 2</span>
+            <div class="d-flex align-items-center">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Fluminense_FC_escudo.png" alt="Fluminense" style="width: 20px; height: 20px; margin-left: 10px;">
+              <span class="fs-4">FLU</span>
+            </div>
+          </div>
+      
+          <!-- Jogo 2 -->
+          <div class="d-flex justify-content-center align-items-center mb-3">
+            <div class="d-flex align-items-center">
+              <span class="fs-4 me-2">RBB</span>
+              <img src="https://upload.wikimedia.org/wikipedia/pt/9/9e/RedBullBragantino.png?20200103153130" alt="Bragantino" style="width: 20px; height: 20px;">
+            </div>
+            <span class="fs-4 mx-2">0 x 0</span>
+            <div class="d-flex align-items-center">
+              <img src="https://upload.wikimedia.org/wikipedia/pt/2/20/Cuiab%C3%A1EC2020.png?20210817144210" alt="Cuiabá" style="width: 20px; height: 20px; margin-left: 10px;">
+              <span class="fs-4">CUI</span>
+            </div>
+          </div>
+      
+          <!-- Jogo 3 -->
+          <div class="d-flex justify-content-center align-items-center mb-3">
+            <div class="d-flex align-items-center">
+              <span class="fs-4 me-2">JUV</span>
+              <img src="https://logodownload.org/wp-content/uploads/2017/02/ec-juventude-logo-escudo-3.png" alt="Juventude" style="width: 20px; height: 20px;">
+            </div>
+            <span class="fs-4 mx-2">0 x 3</span>
+            <div class="d-flex align-items-center">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Escudo_do_Fortaleza_EC.png" alt="Fortaleza" style="width: 20px; height: 20px; margin-left: 10px;">
+              <span class="fs-4">FOR</span>
+            </div>
+          </div>
+      
+          <!-- Jogo 4 -->
+          <div class="d-flex justify-content-center align-items-center mb-3">
+            <div class="d-flex align-items-center">
+              <span class="fs-4 me-2">CAP</span>
+              <img src="https://upload.wikimedia.org/wikipedia/pt/c/c7/Club_Athletico_Paranaense_2019.png" alt="Athletico-PR" style="width: 20px; height: 20px;">
+            </div>
+            <span class="fs-4 mx-2">1 x 2</span>
+            <div class="d-flex align-items-center">
+              <img src="https://upload.wikimedia.org/wikipedia/pt/3/34/Esporte_Clube_Vit%C3%B3ria_logo.png" alt="Vitória" style="width: 20px; height: 20px; margin-left: 10px;">
+              <span class="fs-4">VIT</span>
+            </div>
+          </div>
+      
+          <!-- Jogo 5 -->
+          <div class="d-flex justify-content-center align-items-center mb-3">
+            <div class="d-flex align-items-center">
+              <span class="fs-4 me-2">COR</span>
+              <img src="https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png" alt="Corinthians" style="width: 20px; height: 20px;">
+            </div>
+            <span class="fs-4 mx-2">2 x 0</span>
+            <div class="d-flex align-items-center">
+              <img src="https://sep-bucket-prod.s3.amazonaws.com/wp-content/uploads/2021/10/escudos-inst_3.png" alt="Palmeiras" style="width: 20px; height: 20px; margin-left: 10px;">
+              <span class="fs-4">PAL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </body>
+</html>
